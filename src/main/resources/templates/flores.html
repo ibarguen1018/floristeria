@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Flores</title>
+    <!-- Enlace a Bootstrap para estilos CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .color {
+            color: rgb(0, 0, 0);
+            font-weight: bold;
+            text-align: center;
+        }
+    
+        .centrado {
+            text-align: center;
+            background-color: rgb(255, 255, 255);
+        }
+    
+        .imagen-flor {
+            max-height: 150px;
+            max-width: 150px;
+        }
+    
+        /* Estilo para el fondo del body */
+        body {
+            background-image: url('https://besthqwallpapers.com/Uploads/11-5-2019/91312/thumb2-tulip-field-evening-sunset-pink-tulips-mill.jpg');
+            background-size: cover; /* Cubre todo el espacio disponible */
+            background-position: center; /* Centra la imagen en la página */
+            background-attachment: fixed; /* Hace que la imagen de fondo sea fija durante el desplazamiento */
+        }
+    
+        /* Estilos adicionales para la tabla */
+        .table {
+            border: 2px solid black; /* Borde negro */
+            border-radius: 15px; /* Esquinas redondeadas */
+            box-shadow: 5px 5px 10px rgba(0,0,0,0.5); /* Sombra */
+            border-collapse: collapse; /* Modificado para eliminar doble borde */
+        }
+    
+        /* Estilos para las celdas de la tabla */
+        .table th, .table td {
+            border: 2px solid black; /* Borde negro sólido para celdas y columnas */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Fragmento de Thymeleaf para incluir contenido común -->
+    <div th:replace="~{layout :: content}">
+    </div>
+    <div class="container"><br>
+        <h2 class="color">Lista de Flores</h2><br>
+        <!-- Tabla para mostrar la lista de flores -->
+        <table class="table table-bordered">
+            <thead class="centrado">
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                    <th>Imagen</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="flor : ${flores}" class="centrado">
+                    <td th:text="${flor.id}"></td>
+                    <td th:text="${flor.nombre}"></td>
+                    <td th:text="${flor.precio}"></td>
+                    <td>
+                        <img th:src="@{${flor.imagePath}}" alt="Imagen de la flor" class="imagen-flor" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div th:if="${message}" class="centrado">
+            <h2 th:text="${message}"></h2>
+        </div>
+    </div>
+
+    <!-- Enlaces a los scripts de Bootstrap y Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

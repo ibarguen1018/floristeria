@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Establece la codificación de caracteres para el documento HTML -->
+    <meta charset="UTF-8">
+    <!-- Título de la página web mostrado en la pestaña del navegador -->
+    <title>Inicio</title>
+    <!-- Enlace al CSS de Bootstrap para estilos predeterminados -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <style>
+                body {
+            background-image: url('https://th.bing.com/th/id/R.5b654916b7215223367f455fb07781b1?rik=E62lx1XyuGBq9Q&pid=ImgRaw&r=0');
+            background-size: cover; /* Cubre todo el espacio disponible */
+            background-position: center; /* Centra la imagen en la página */
+            background-attachment: fixed; /* Hace que la imagen de fondo sea fija durante el desplazamiento */
+        }
+    </style>
+    <!-- Incluye contenido dinámico dentro del cuerpo usando Thymeleaf -->
+    <div th:replace="layout :: content">
+       
+    </div>
+    
+</body>
+<!-- Incluye jQuery, necesario para las funcionalidades de Bootstrap -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<!-- Incluye Popper.js, utilizado para las tooltips y popovers en Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<!-- Incluye JavaScript de Bootstrap para componentes interactivos como modales y dropdowns -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</html>
